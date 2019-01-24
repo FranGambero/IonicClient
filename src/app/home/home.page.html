@@ -1,12 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+      <ion-title style="line-height: 35px" float-left>Lista Alumnos</ion-title>
+    <ion-button size="small" float-right (click)="onClickAdd()">Crear alumno</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-</ion-content>
+    <ion-list>
+      <ion-item *ngFor="let alumno of alumnos">
+       <ion-label>
+          <h2>{{alumno.nombre}}</h2>
+          <h3>Ciudad: {{alumno.ciudad}}</h3>
+          <h3>Email: {{alumno.email}}</h3>
+       </ion-label>
+       <ion-button color="medium" (click)="updateAlumno(alumno.id)">Modificar</ion-button>
+       <ion-button color="danger" (click)="deleteAlumno(alumno)">Matar</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>

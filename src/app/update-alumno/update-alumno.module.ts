@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { IonicModule } from '@ionic/angular';
+
+import { UpdateAlumnoPage } from './update-alumno.page';
 import { HttpModule } from '@angular/http';
 import { AlumnoProviderService } from '../providers/alumno-provider.service';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: UpdateAlumnoPage
+  }
+];
 
 @NgModule({
   imports: [
@@ -14,14 +22,9 @@ import { AlumnoProviderService } from '../providers/alumno-provider.service';
     FormsModule,
     IonicModule,
     HttpModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
+    RouterModule.forChild(routes)
   ],
-  declarations: [HomePage],
+  declarations: [UpdateAlumnoPage],
   providers: [AlumnoProviderService]
 })
-export class HomePageModule {}
+export class UpdateAlumnoPageModule {}
